@@ -18,6 +18,6 @@ spec:
   source:
     git:
       ref:
-        branch: master
+        branch: homelab
       url: https://github.com/tfynes-pivotal/yugastore-k8s
     subPath: src/eureka-server-local
