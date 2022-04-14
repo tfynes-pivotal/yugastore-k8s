@@ -17,7 +17,7 @@ spring:
   datasource:
     url: jdbc:postgresql://${DB_HOSTNAME:127.0.0.1}:5433/yugabyte
     username: yugabyte
-    password: yugabyte
+    password: ${DB_PASSWORD:yugabyte}
 logging:
   level:
     root: debug
