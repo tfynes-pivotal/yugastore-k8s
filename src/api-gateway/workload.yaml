@@ -10,11 +10,11 @@ metadata:
 spec:
   env:
   - name: "EUREKA_URI"
-    value: "http://eureka-default.gkelabeast.tap.fynesy.com/eureka"
+    value: "http://eureka-default.homelab.tap.fynesy.com/eureka"
   - name: "DB_HOSTNAME"
-    value: "yb-tservers.yb-demo-us-east1-b.svc.cluster.local"
+    value: "yb-tservers.yb1.svc.cluster.local"
   - name: "spring.datasource.url"
-    value: "jdbc:postgresql://yb-tservers.yb-demo-us-east1-b.svc.cluster.local:5433/yugabyte"
+    value: "jdbc:postgresql://yb-tservers.yb1.svc.cluster.local:5433/yugabyte"
   build: 
     env: 
     - name: BP_JVM_VERSION
@@ -22,6 +22,6 @@ spec:
   source:
     git:
       ref:
-        branch: master
+        branch: homelab
       url: https://github.com/tfynes-pivotal/yugastore-k8s
     subPath: "src/api-gateway"
