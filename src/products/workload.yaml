@@ -1,0 +1,27 @@
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+  name: products
+spec:
+  env:
+  - name: "EUREKA_URI"
+    value: "http://eureka-default.homelab.tap.fynesy.com/eureka"
+  - name: "DB_HOSTNAME"
+    value: "yb-tservers.yb1.svc.cluster.local"
+  - name: "spring.datasource.url"
+    value: "jdbc:postgresql://yb-tservers.yb1.svc.cluster.local:5433/yugabyte"
+  build: 
+    env: 
+    - name: BP_JVM_VERSION
+      value: "17"
+  source:
+    git:
+      ref:
+        branch: homelab
+      url: https://github.com/tfynes-pivotal/yugastore-k8s
+    subPath: "src/products"
